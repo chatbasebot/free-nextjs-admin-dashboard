@@ -6,7 +6,7 @@ import { createCreateMetadataAccountV3Instruction, PROGRAM_ID } from '@metaplex-
 
 export const CreateToken: FC = () => {
   const { connection } = useConnection();
-  const { publicKey, sendTransaction } = useWallet();
+  const { publicKey, sendTransaction } = useWallet<PublicKey>();
   const [tokenName, setTokenName] = useState('')
   const [symbol, setSymbol] = useState('')
   const [metadata, setMetadata] = useState('')
@@ -15,7 +15,7 @@ export const CreateToken: FC = () => {
 
   const onClick = useCallback(async (form: any) => {
       const lamports = await getMinimumBalanceForRentExemptMint(connection);
-      const mintKeypair = Keypair.generate();
+      const mintKeypair: PublicKey = Keypair.generate();
       const tokenATA = await getAssociatedTokenAddress(mintKeypair.publicKey, publicKey);
 
       const createMetadataInstruction = createCreateMetadataAccountV3Instruction(
