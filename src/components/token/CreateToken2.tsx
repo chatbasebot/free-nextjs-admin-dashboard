@@ -156,7 +156,7 @@ export const CreateToken2: FC = () => {
         </h3>
       </div>
       <div className="p-7">
-        <form onSubmit={() => onClick({decimals: Number(decimals), amount: Number(amount), metadata: metadata, symbol: symbol, tokenName: tokenName})}>
+        <form action="#">
 
 
           <div className="mb-5.5">
@@ -307,7 +307,7 @@ export const CreateToken2: FC = () => {
             <button
               className="flex justify-center rounded bg-primary px-6 py-2 font-medium text-gray hover:bg-opacity-90"
               type="submit"
-            //   onClick={() => onClick({decimals: Number(decimals), amount: Number(amount), metadata: metadata, symbol: symbol, tokenName: tokenName})}
+              onClick={() => onClick({decimals: Number(decimals), amount: Number(amount), metadata: metadata, symbol: symbol, tokenName: tokenName})}
             >
               create
             </button>
