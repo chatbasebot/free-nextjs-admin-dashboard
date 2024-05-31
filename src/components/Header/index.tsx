@@ -5,6 +5,13 @@ import DropdownNotification from "./DropdownNotification";
 import DropdownUser from "./DropdownUser";
 import Image from "next/image";
 
+import { WalletButton } from '../solana/solana-provider';
+import {
+  // ClusterChecker,
+  ClusterUiSelect,
+  // ExplorerLink,
+} from '../cluster/cluster-ui';
+
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
   setSidebarOpen: (arg0: boolean) => void;
@@ -120,6 +127,10 @@ const Header = (props: {
           {/* <!-- User Area --> */}
           <DropdownUser />
           {/* <!-- User Area --> */}
+
+          <WalletButton />
+          <ClusterUiSelect />
+
         </div>
       </div>
     </header>

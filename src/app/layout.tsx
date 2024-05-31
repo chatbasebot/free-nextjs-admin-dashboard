@@ -6,6 +6,10 @@ import "@/css/style.css";
 import React, { useEffect, useState } from "react";
 import Loader from "@/components/common/Loader";
 
+import { ClusterProvider } from '@/components/cluster/cluster-data-access';
+import { SolanaProvider } from '@/components/solana/solana-provider';
+import { ReactQueryProvider } from './react-query-provider';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,9 +27,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <div className="dark:bg-boxdark-2 dark:text-bodydark">
-          {loading ? <Loader /> : children}
-        </div>
+        <ReactQueryProvider>
+          <ClusterProvider>
+            <SolanaProvider>
+             <div className="dark:bg-boxdark-2 dark:text-bodydark">
+               {loading ? <Loader /> : children}
+             </div>
+            </SolanaProvider>
+          </ClusterProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );
