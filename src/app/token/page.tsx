@@ -2,7 +2,9 @@
 // import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
-import { CreateToken } from '../../components/token/CreateToken';
+// import { CreateToken } from '../../components/token/CreateToken';
+
+import { CreateToken2 } from '../../components/token/CreateToken';
 
 
 // export const metadata: Metadata = {
@@ -15,7 +17,8 @@ export default function Token() {
   return (
     <>
       <DefaultLayout>
-        <CreateToken />
+        {/* <CreateToken /> */}
+        <CreateToken2 />
       </DefaultLayout>
     </>
   );
