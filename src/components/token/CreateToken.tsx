@@ -15,11 +15,16 @@ export const CreateToken: FC = () => {
 
   const onClick = useCallback(async (form: any) => {
       const lamports = await getMinimumBalanceForRentExemptMint(connection);
-      const mintKeypair: PublicKey = Keypair.generate();
+      const mintKeypair = Keypair.generate();
 
-      const pubKey: PublicKey = publicKey;
-      
-      const tokenATA = await getAssociatedTokenAddress(mintKeypair.publicKey, pubKey);
+    //   const tokenATA;
+      if(publicKey !== null ){
+        const tokenATA = await getAssociatedTokenAddress(mintKeypair.publicKey, publicKey);
+    //   } else {
+    //     return;
+    //   }
+
+    //   const tokenATA = await getAssociatedTokenAddress(mintKeypair.publicKey, publicKey);
 
       const createMetadataInstruction = createCreateMetadataAccountV3Instruction(
         {
@@ -125,7 +130,14 @@ export const CreateToken: FC = () => {
       //     )
       // );
 
+    
+
       await sendTransaction(createNewTokenTransaction, connection, {signers: [mintKeypair]});
+
+    } else {
+        return;
+      }
+
   }, [publicKey, connection, sendTransaction]);
 
   return (
