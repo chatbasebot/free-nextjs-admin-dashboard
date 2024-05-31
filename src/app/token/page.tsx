@@ -4,7 +4,7 @@ import DefaultLayout from "@/components/Layouts/DefaultLayout";
 
 // import { CreateToken } from '../../components/token/CreateToken';
 
-import { CreateToken2 } from '../../components/token/CreateToken';
+import { CreateToken2 } from '../../components/token/CreateToken2';
 
 
 // export const metadata: Metadata = {
