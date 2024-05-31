@@ -13,7 +13,7 @@ export const CreateToken: FC = () => {
   const [amount, setAmount] = useState('')
   const [decimals, setDecimals] = useState('')
 
-  const onClick = useCallback(async (form) => {
+  const onClick = useCallback(async (form: any) => {
       const lamports = await getMinimumBalanceForRentExemptMint(connection);
       const mintKeypair = Keypair.generate();
       const tokenATA = await getAssociatedTokenAddress(mintKeypair.publicKey, publicKey);
