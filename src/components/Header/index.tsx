@@ -1,16 +1,17 @@
-import Link from "next/link";
-import DarkModeSwitcher from "./DarkModeSwitcher";
-import DropdownMessage from "./DropdownMessage";
-import DropdownNotification from "./DropdownNotification";
-import DropdownUser from "./DropdownUser";
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
 
 import { WalletButton } from '../solana/solana-provider';
-import {
-  // ClusterChecker,
-  ClusterUiSelect,
-  // ExplorerLink,
-} from '../cluster/cluster-ui';
+import DarkModeSwitcher from './DarkModeSwitcher';
+import DropdownMessage from './DropdownMessage';
+import DropdownNotification from './DropdownNotification';
+import DropdownUser from './DropdownUser';
+
+// import {
+//   // ClusterChecker,
+//   ClusterUiSelect,
+//   // ExplorerLink,
+// } from '../cluster/cluster-ui';
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
@@ -129,7 +130,7 @@ const Header = (props: {
           {/* <!-- User Area --> */}
 
           <WalletButton />
-          <ClusterUiSelect />
+          {/* <ClusterUiSelect /> */}
 
         </div>
       </div>
