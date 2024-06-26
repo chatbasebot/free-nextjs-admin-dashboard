@@ -13,6 +13,7 @@ import {
   Radio,
 } from 'antd';
 
+import DefaultLayout from '@/components/Layouts/DefaultLayout';
 import {
   ArrowDownOutlined,
   DownOutlined,
@@ -259,6 +260,7 @@ function Swap() {
           </>
         );
       return (
+        <DefaultLayout>
           <div className={styles.App}>
               <div className={styles.mainWindow}>
                   {contextHolder}
@@ -331,6 +333,7 @@ function Swap() {
                   </div>
               </div>
           </div>
+        </DefaultLayout>
       )
   }
   export default Swap;
