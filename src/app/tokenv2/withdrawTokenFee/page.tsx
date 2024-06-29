@@ -1,6 +1,7 @@
 "use client"
 import { FC } from 'react';
 
+import DefaultLayout from '@/components/Layouts/DefaultLayout';
 import {
   ASSOCIATED_TOKEN_PROGRAM_ID,
   createAssociatedTokenAccountIdempotentInstruction,
@@ -92,6 +93,7 @@ const WithDrawTokenFee: FC = () => {
     }
 
     return (
+        <DefaultLayout>
         <div>
             {publicKey ? (
                 <form onSubmit={withdrawTokenFee} className={styles.form}>
@@ -129,6 +131,7 @@ const WithDrawTokenFee: FC = () => {
                 <div className={styles.errorMessage}>Please connect your wallet to continue</div>
             )}
         </div>
+        </DefaultLayout>
     );
 
 };

@@ -4,6 +4,7 @@ import React, {
   useState,
 } from 'react';
 
+import DefaultLayout from '@/components/Layouts/DefaultLayout';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { PublicKey } from '@solana/web3.js';
 
@@ -57,6 +58,7 @@ const Whitelisting: FC = () => {
 
 
     return (
+        <DefaultLayout>
         <div>
             {publicKey ? (
                 <form className={styles.form}>
@@ -84,7 +86,7 @@ const Whitelisting: FC = () => {
                 <div className={styles.errorMessage}>Please connect your wallet to continue</div>
             )}
         </div>
-
+        </DefaultLayout>
     );
 };
 

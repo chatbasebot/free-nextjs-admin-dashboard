@@ -4,6 +4,7 @@ import {
   useState,
 } from 'react';
 
+import DefaultLayout from '@/components/Layouts/DefaultLayout';
 import {
   ASSOCIATED_TOKEN_PROGRAM_ID,
   createAssociatedTokenAccountInstruction,
@@ -285,6 +286,7 @@ const CreateMintForm: FC = () => {
     };
 
     return (
+        <DefaultLayout>
         <div>
             {publicKey ? (
                 <form onSubmit={createMint} className={styles.form}>
@@ -313,6 +315,7 @@ const CreateMintForm: FC = () => {
                 <div className={styles.errorMessage}>Please connect your wallet to continue</div>
             )}
         </div>
+        </DefaultLayout>
     );
 };
 
