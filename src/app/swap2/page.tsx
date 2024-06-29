@@ -28,6 +28,14 @@ import {
 import styles from './swap.module.css';
 import tokenList from './tokenList.json';
 
+type Price = {
+  id: string;
+  mintSymbol: string;
+  vsToken: string;
+  vsTokenSymbol: string;
+  price: string;
+}
+
 function Swap() {
       const wallet = useWallet();
       // const connection = useConnection();
@@ -51,6 +59,8 @@ function Swap() {
       const [tokenTwoN, setTokenTwoN] = useState(1);
       const [tokenOnePrice, setTokenOnePrice] = useState(0);
       const [tokenTwoPrice, setTokenTwoPrice] = useState(0);
+      const [tokenOnePriceR, setTokenOnePriceR] = useState<Price | null>(null);
+      const [tokenTwoPriceR, setTokenTwoPriceR] = useState<Price | null>(null);
   
       function handleSlippageChange(e: any) {
           setSlippage(e.target.value);
@@ -153,9 +163,14 @@ function Swap() {
         } catch(e) {console.log('can not get price', e)}
 
         if (tOnePrice && tTwoPrice) {
-          const tOneAddress = tokenOne.address;
-          console.log('tOnePrice: ',tOnePrice.data);
-          console.log('tTwoPrice: ',tTwoPrice.data);
+          // const tOneAddress = tokenOne.address;
+          setTokenOnePriceR(tOnePrice);
+          setTokenOnePriceR(tTwoPrice);
+          // console.log('tOnePrice: ',tOnePrice.data);
+          // console.log('tTwoPrice: ',tTwoPrice.data);
+          
+          console.log('tOnePrice: ',tokenOnePriceR.price);
+          console.log('tTwoPrice: ',tokenTwoPriceR);
 
           // setTokenOnePrice(tOnePrice.data.price)
           // setTokenTwoPrice(tTwoPrice.price)
