@@ -7,13 +7,13 @@ import React, {
 import { useWallet } from '@solana/wallet-adapter-react';
 import { PublicKey } from '@solana/web3.js';
 
-import styles from '../../css/Home.module.css';
+import styles from '../../../css/Home.module.css';
 import {
   add_account_to_whitelist,
   init_pda,
   transfer_auth,
   transfer_tokens_whitelist,
-} from '../../services/service';
+} from '../../../services/service';
 
 //1 kere kullanicak - initialize whitelist
 // whitelist add account

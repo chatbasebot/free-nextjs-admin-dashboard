@@ -1,3 +1,4 @@
+"use client";
 import {
   FC,
   useState,
@@ -34,7 +35,7 @@ import {
   Transaction,
 } from '@solana/web3.js';
 
-import styles from '../../css/Home.module.css';
+import styles from '../../../css/Home.module.css';
 
 const CreateMintForm: FC = () => {
     const [txSig, setTxSig] = useState("");

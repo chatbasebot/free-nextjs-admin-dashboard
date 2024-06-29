@@ -1,3 +1,4 @@
+"use client"
 import { FC } from 'react';
 
 import {
@@ -17,7 +18,7 @@ import {
   Transaction,
 } from '@solana/web3.js';
 
-import styles from '../../css/Home.module.css';
+import styles from '../../../css/Home.module.css';
 
 const WithDrawTokenFee: FC = () => {
 
