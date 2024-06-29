@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SerumMarketInfo } from "../hooks/useSerumMarkets";
 
 export enum AccountTypes {

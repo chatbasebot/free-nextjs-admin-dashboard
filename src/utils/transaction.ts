@@ -31,7 +31,7 @@ export async function sendWalletTransaction(
   tx.lastValidBlockHeight = lastValidBlockHeight;
   tx.feePayer = wallet.publicKey;
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+ 
   tx = await wallet.signTransaction!(tx);
 
   if (signers && signers.length > 0) tx.partialSign(...signers);
@@ -240,7 +240,7 @@ export async function sendSignedTransaction({
   })();
   try {
     await awaitTransactionSignatureConfirmation(txid, timeout, connection);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    
   } catch (err: any) {
     if (err.timeout) {
       throw new Error("Timed out awaiting confirmation on transaction");
