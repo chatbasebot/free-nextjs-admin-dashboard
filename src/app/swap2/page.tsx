@@ -49,6 +49,8 @@ function Swap() {
       ///////////ayad//////////
       const [tokenOneN, setTokenOneN] = useState(0);
       const [tokenTwoN, setTokenTwoN] = useState(1);
+      const [tokenOnePrice, setTokenOnePrice] = useState(0);
+      const [tokenTwoPrice, setTokenTwoPrice] = useState(0);
   
       function handleSlippageChange(e: any) {
           setSlippage(e.target.value);
@@ -125,8 +127,43 @@ function Swap() {
       
           setQuoteResponse(quote);
       }
+
+      //Get tokens price
+      const debouncePriceCall = useCallback(debounce(getPrice, 500), [tokenOne, tokenTwo]);
   
-  
+      useEffect(() => {
+          debouncePriceCall();
+      }, [tokenOne, tokenTwo, debouncePriceCall]);
+
+      async function getPrice() {
+        //https://price.jup.ag/v6/price?ids=So11111111111111111111111111111111111111112
+        let tOnePrice;
+        let tTwoPrice;
+        try{
+          tOnePrice = await ( await fetch (
+              `https://price.jup.ag/v6/price?ids=${tokenOne.address}`
+            )
+          ).json();
+
+          tTwoPrice = await ( await fetch (
+            `https://price.jup.ag/v6/price?ids=${tokenTwo.address}`
+            )
+          ).json();
+          
+        } catch(e) {console.log('can not get price', e)}
+
+        if (tOnePrice && tTwoPrice) {
+          const tOneAddress = tokenOne.address;
+          console.log('tOnePrice: ',tOnePrice.data);
+          console.log('tTwoPrice: ',tTwoPrice.data);
+
+          // setTokenOnePrice(tOnePrice.data.price)
+          // setTokenTwoPrice(tTwoPrice.price)
+        } else {
+          setTokenOnePrice(0)
+          setTokenTwoPrice(0)
+        }
+      }
   
       function switchTokens() {
           // setPrices(null);
@@ -332,10 +369,10 @@ function Swap() {
                               <DownOutlined />
                           </div>
                           <div className={styles.assetOnePrice}>
-                            <h3>55.2 $</h3>
+                            <h3>~ {tokenOnePrice} $</h3>
                           </div>
                           <div className={styles.assetTwoPrice}>
-                            <h3>11.22 $</h3>
+                            <h3>~ {tokenTwoPrice} $</h3>
                           </div>
                       </div>
                       {/* <div className={styles.swapButton} disabled={!tokenOneAmount || !isConnected} onClick={fetchDexSwap}>Swap</div> */}
