@@ -141,7 +141,7 @@
 
   .switchArrow2 {
     background-color: #3a4157;
-    width: 30px;
+    width: 35px;
     height: 30px;
     align-items: center;
     justify-content: center;
@@ -150,6 +150,9 @@
     border: 3px solid #0E111B;
     font-size: 12px;
     transition: 0.3s
+  }
+  .switchArrow2:hover{
+    cursor: pointer;
   }
   
   .dollarAmount {
@@ -174,7 +177,7 @@
     min-width: 50px;
     height: 30px;
     background-color: #3a4157;
-    top: 36px;
+    top: 30px;
     right: 20px;
     border-radius: 100px;
     display: flex;
@@ -185,13 +188,31 @@
     font-size: 17px;
     padding-right: 8px;
   }
+
+  .assetOnePrice {
+    position: absolute;
+    /* min-width: 50px; */
+    height: 30px;
+    /* background-color: #3a4157; */
+    top: 65px;
+    right: 20px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    padding-right: 8px;
+  }
   
   .assetTwo {
     position: absolute;
     min-width: 50px;
     height: 30px;
     background-color: #3a4157;
-    top: 135px;
+    /* top: 135px; */
+    top: 160px;
     right: 20px;
     border-radius: 100px;
     display: flex;
@@ -200,6 +221,24 @@
     gap: 5px;
     font-weight: bold;
     font-size: 17px;
+    padding-right: 8px;
+  }
+
+  .assetTwoPrice {
+    position: absolute;
+    /* min-width: 50px; */
+    height: 30px;
+    /* background-color: #3a4157; */
+    /* top: 135px; */
+    top: 195px;
+    right: 20px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    font-size: 14px;
     padding-right: 8px;
   }
   

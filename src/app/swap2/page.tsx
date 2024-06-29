@@ -309,8 +309,8 @@ function Swap() {
                               // disabled={!prices}
                           />
                           {/* //ayad/////// */}
-                          <div className={styles.switchButton2} onClick={switchTokens}>
-                              <ArrowDownOutlined className={styles.switchArrow2}/>
+                          <div className={styles.switchButton2}>
+                              <ArrowDownOutlined className={styles.switchArrow2} onClick={switchTokens}/>
                           </div>
                           <Input placeholder="0" 
                           value={tokenOneAmount==0 ? 0 : tokenTwoAmount} 
@@ -330,6 +330,12 @@ function Swap() {
                               <img src={tokenTwo.img} alt="assetOneLogo" className={styles.assetLogo} />
                               {tokenTwo.ticker}
                               <DownOutlined />
+                          </div>
+                          <div className={styles.assetOnePrice}>
+                            <h3>55.2 $</h3>
+                          </div>
+                          <div className={styles.assetTwoPrice}>
+                            <h3>11.22 $</h3>
                           </div>
                       </div>
                       {/* <div className={styles.swapButton} disabled={!tokenOneAmount || !isConnected} onClick={fetchDexSwap}>Swap</div> */}
