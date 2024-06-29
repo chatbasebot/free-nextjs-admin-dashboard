@@ -169,7 +169,7 @@ function Swap() {
               
               setTokenTwo(tokenList[i]);
               setTokenTwoN(i);
-          //   fetchPrices(tokenOne.address, tokenList[i].address)
+          //  fetchPrices(tokenOne.address, tokenList[i].address)
           }
           setIsOpen(false);
       }
@@ -245,7 +245,7 @@ function Swap() {
                 })
               console.error('Error signing or sending the transaction:', error);
           }
-      }
+      } 
       
       const settings = (
           <>
