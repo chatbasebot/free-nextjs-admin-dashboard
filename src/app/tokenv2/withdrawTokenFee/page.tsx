@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { FC } from 'react';
 
 import DefaultLayout from '@/components/Layouts/DefaultLayout';
